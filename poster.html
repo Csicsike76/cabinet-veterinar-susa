@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8" />
+<title>Cabinet Veterinar Dr. Ioan Susa – afiș aplicație</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 210mm; height: 297mm; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #0b1f4f; background: #fff; }
+  .page > * { flex-shrink: 0; }
+  .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; }
+  .stripe { height: 5mm; background: linear-gradient(90deg, #002b7f 0 33.3%, #fcd116 33.3% 66.6%, #ce1126 66.6%); }
+  .hero { background: linear-gradient(170deg, #0b1f4f 0%, #02685a 60%, #013a33 100%); color: #fff; text-align: center; padding: 7mm 12mm 6mm; }
+  .hero img { height: 26mm; }
+  .hero h1 { font-size: 10mm; margin: 4mm 0 1mm; line-height: 1.1; }
+  .hero h2 { font-size: 7mm; margin: 0; font-weight: 600; opacity: .95; }
+  .free { display: inline-block; margin-top: 4mm; background: #fcd116; color: #0b1f4f; font-weight: 800; font-size: 5mm; border-radius: 99mm; padding: 1.5mm 6mm; }
+  .qrwrap { display: flex; align-items: center; gap: 8mm; padding: 7mm 14mm 5mm; }
+  .qr { width: 80mm; height: 80mm; border: 2mm solid #02685a; border-radius: 6mm; padding: 2mm; flex-shrink: 0; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan p { margin: 0 0 3.5mm; font-size: 6.6mm; font-weight: 800; line-height: 1.15; }
+  .scan p span { display: block; font-size: 5mm; font-weight: 600; color: #02685a; margin-top: 1mm; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; padding: 0 14mm; }
+  .col { border-radius: 5mm; padding: 4mm 5mm; background: #e7f4f1; }
+  .col h3 { margin: 0 0 2mm; font-size: 5.6mm; }
+  .col ol { margin: 0; padding-left: 5mm; font-size: 3.8mm; line-height: 1.35; }
+  .col .hu { color: #02685a; }
+  .other { text-align: center; font-size: 3.6mm; color: #475569; padding: 3mm 14mm 3mm; }
+  .foot { margin-top: auto; background: #0b1f4f; color: #fff; text-align: center; padding: 5mm 10mm; font-size: 4.2mm; line-height: 1.5; }
+  .foot b { color: #fcd116; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="stripe"></div>
+  <div class="hero">
+    <img src="img/logo-white.webp" alt="Cabinet Veterinar Dr. Ioan Susa" />
+    <h1>Aplicația gratuită a cabinetului</h1>
+    <h2>A rendelő ingyenes alkalmazása</h2>
+    <div class="free">Gratuit · Ingyenes · Android &amp; iPhone</div>
+  </div>
+
+  <div class="qrwrap">
+    <div class="qr"><img src="qr.svg" alt="QR" /></div>
+    <div class="scan">
+      <p>Scanați codul cu camera telefonului<span>Olvassa be a kódot a telefon kamerájával</span></p>
+      <p>Carnet de sănătate, mementouri, programări<span>Egészségügyi könyv, emlékeztetők, időpontkérés</span></p>
+      <p>Fără cont, fără reclame<span>Regisztráció és reklám nélkül</span></p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <h3>🤖 Android</h3>
+      <ol>
+        <li>Apăsați „Descarcă pentru Android” și deschideți fișierul.<br><span class="hu">Nyomja meg a „Letöltés Androidra” gombot, nyissa meg a fájlt.</span></li>
+        <li>Permiteți „Instalare aplicații necunoscute”, dacă vi se cere.<br><span class="hu">Ha kéri, engedélyezze az „Ismeretlen alkalmazások telepítését”.</span></li>
+        <li>„Instalează” → „Deschide”.<br><span class="hu">„Telepítés” → „Megnyitás”.</span></li>
+      </ol>
+    </div>
+    <div class="col">
+      <h3>🍎 iPhone</h3>
+      <ol>
+        <li>Deschideți aplicația în Safari.<br><span class="hu">Nyissa meg az alkalmazást Safariban.</span></li>
+        <li>Partajare ⬆ → „Adaugă pe ecranul principal”.<br><span class="hu">Megosztás ⬆ → „Főképernyőhöz adás”.</span></li>
+        <li>„Adaugă” – pictograma apare pe ecran.<br><span class="hu">„Hozzáadás” – az ikon megjelenik a kezdőképernyőn.</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="other">English · Deutsch: scan the code / Code scannen – the app speaks your language · die App spricht Ihre Sprache.</p>
+
+  <div class="foot">
+    Str. Bogdan Petriceicu Hașdeu nr. 6 (lângă piața mare), Satu Mare<br>
+    Programări: <b>0753 434 589 · 0744 535 962</b> · Urgențe animale mari: <b>0757 574 971</b><br>
+    L–V 08–19 · S 09–13 · D 10–12 · susa.ro
+  </div>
+</div>
+</body>
+</html>
