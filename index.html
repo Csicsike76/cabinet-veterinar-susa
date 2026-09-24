@@ -62,23 +62,15 @@
     <section class="card" id="android">
       <h2>🤖 Android <span class="mine-tag" data-i="yours"></span></h2>
       <a class="btn green" href="CabinetVet-DrSusa.apk" download><span aria-hidden="true">⬇️</span> <span data-i="a_btn"></span></a>
-      <ol>
-        <li data-i="a1"></li>
-        <li data-i="a2"></li>
-        <li data-i="a3"></li>
-      </ol>
+      <ol id="a-steps"></ol>
+      <p class="note" id="a-tip"></p>
       <p class="note" data-i="a_note"></p>
     </section>
 
     <section class="card" id="iphone">
       <h2>🍎 iPhone <span class="mine-tag" data-i="yours"></span></h2>
       <a class="btn navy" href="app/"><span aria-hidden="true">📲</span> <span data-i="i_btn"></span></a>
-      <ol>
-        <li data-i="i1"></li>
-        <li><span data-i="i2"></span> <svg class="share" width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M9 1v13M4.5 5.5 9 1l4.5 4.5M3 9H1.8v11.2h14.4V9H15" fill="none" stroke="#0b1f4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
-        <li data-i="i3"></li>
-        <li data-i="i4"></li>
-      </ol>
+      <ol id="i-steps"></ol>
       <p class="note" data-i="i_note"></p>
     </section>
 
@@ -94,25 +86,27 @@
     const T = {
       ro: {
         title: 'Aplicația cabinetului, gratuit', sub: 'Carnetul de sănătate al animalului tău, mementouri și contactul cu cabinetul – totul în telefon.', free: 'Gratuit · fără cont · fără reclame', yours: 'telefonul tău',
-        a_btn: 'Descarcă pentru Android', a1: 'Apasă butonul de mai sus și deschide fișierul descărcat.', a2: 'Dacă telefonul întreabă, permite instalarea din această sursă („Instalare aplicații necunoscute”).', a3: 'Apasă „Instalează”, apoi „Deschide”.', a_note: 'Aplicația este oferită de cabinet; datele rămân doar pe telefonul tău.',
-        i_btn: 'Deschide aplicația în Safari', i1: 'Deschide aplicația cu butonul de mai sus (în Safari).', i2: 'Apasă butonul Partajare', i3: 'Alege „Adaugă pe ecranul principal”.', i4: 'Apasă „Adaugă” – pictograma apare pe ecran, ca orice aplicație.', i_note: 'Pe iPhone datele rămân în telefon; salvarea se face în fișier (iCloud / Fișiere).'
+        a_btn: 'Descarcă pentru Android', a_note: 'Aplicația este oferită de cabinet; datele rămân doar pe telefonul tău.',
+        i_btn: 'Deschide aplicația în Safari', i_note: 'Pe iPhone datele rămân în telefon; salvarea se face în fișier (iCloud / Fișiere).'
       },
       hu: {
         title: 'A rendelő alkalmazása, ingyen', sub: 'Kedvenced egészségügyi könyve, emlékeztetők és a rendelő elérhetősége – mind a telefonodon.', free: 'Ingyenes · regisztráció nélkül · reklám nélkül', yours: 'a te telefonod',
-        a_btn: 'Letöltés Androidra', a1: 'Nyomd meg a fenti gombot, és nyisd meg a letöltött fájlt.', a2: 'Ha a telefon kérdezi, engedélyezd a telepítést ebből a forrásból („Ismeretlen alkalmazások telepítése”).', a3: 'Nyomd meg a „Telepítés”, majd a „Megnyitás” gombot.', a_note: 'Az alkalmazást a rendelő adja; az adataid csak a telefonodon maradnak.',
-        i_btn: 'Az alkalmazás megnyitása Safariban', i1: 'Nyisd meg az alkalmazást a fenti gombbal (Safariban).', i2: 'Koppints a Megosztás gombra', i3: 'Válaszd a „Főképernyőhöz adás” lehetőséget.', i4: 'Koppints a „Hozzáadás” gombra – az ikon megjelenik a kezdőképernyőn, mint bármelyik app.', i_note: 'iPhone-on az adatok a telefonon maradnak; a mentés fájlba történik (iCloud / Fájlok).'
+        a_btn: 'Letöltés Androidra', a_note: 'Az alkalmazást a rendelő adja; az adataid csak a telefonodon maradnak.',
+        i_btn: 'Az alkalmazás megnyitása Safariban', i_note: 'iPhone-on az adatok a telefonon maradnak; a mentés fájlba történik (iCloud / Fájlok).'
       },
       en: {
         title: "The clinic's app, free", sub: "Your pet's health record, reminders and the clinic's contacts – all on your phone.", free: 'Free · no account · no ads', yours: 'your phone',
-        a_btn: 'Download for Android', a1: 'Tap the button above and open the downloaded file.', a2: 'If your phone asks, allow installing from this source ("Install unknown apps").', a3: 'Tap "Install", then "Open".', a_note: 'The app is a gift from the clinic; your data stays on your phone only.',
-        i_btn: 'Open the app in Safari', i1: 'Open the app with the button above (in Safari).', i2: 'Tap the Share button', i3: 'Choose "Add to Home Screen".', i4: 'Tap "Add" – the icon appears on your home screen like any app.', i_note: 'On iPhone your data stays on the phone; backups are saved as a file (iCloud / Files).'
+        a_btn: 'Download for Android', a_note: 'The app is a gift from the clinic; your data stays on your phone only.',
+        i_btn: 'Open the app in Safari', i_note: 'On iPhone your data stays on the phone; backups are saved as a file (iCloud / Files).'
       },
       de: {
         title: 'Die App der Praxis, kostenlos', sub: 'Gesundheitsheft Ihres Tieres, Erinnerungen und die Kontakte der Praxis – alles auf Ihrem Telefon.', free: 'Kostenlos · ohne Konto · ohne Werbung', yours: 'Ihr Telefon',
-        a_btn: 'Für Android herunterladen', a1: 'Tippen Sie auf die Schaltfläche oben und öffnen Sie die heruntergeladene Datei.', a2: 'Wenn das Telefon fragt, erlauben Sie die Installation aus dieser Quelle („Unbekannte Apps installieren“).', a3: 'Tippen Sie auf „Installieren“ und dann auf „Öffnen“.', a_note: 'Die App ist ein Geschenk der Praxis; Ihre Daten bleiben nur auf Ihrem Telefon.',
-        i_btn: 'App in Safari öffnen', i1: 'Öffnen Sie die App mit der Schaltfläche oben (in Safari).', i2: 'Tippen Sie auf „Teilen“', i3: 'Wählen Sie „Zum Home-Bildschirm“.', i4: 'Tippen Sie auf „Hinzufügen“ – das Symbol erscheint wie jede App auf dem Home-Bildschirm.', i_note: 'Auf dem iPhone bleiben die Daten auf dem Telefon; Sicherungen werden als Datei gespeichert (iCloud / Dateien).'
+        a_btn: 'Für Android herunterladen', a_note: 'Die App ist ein Geschenk der Praxis; Ihre Daten bleiben nur auf Ihrem Telefon.',
+        i_btn: 'App in Safari öffnen', i_note: 'Auf dem iPhone bleiben die Daten auf dem Telefon; Sicherungen werden als Datei gespeichert (iCloud / Dateien).'
       }
     };
+    const STEPS = {"ro": {"a": ["Apăsați butonul verde <b>„Descarcă pentru Android”</b>. Dacă browserul avertizează că fișierul „poate dăuna dispozitivului”, alegeți <b>„Descarcă oricum”</b>.", "Când descărcarea s-a terminat, apăsați <b>„Deschide”</b> (sau deschideți notificarea / folderul <b>Descărcări</b> → <b>CabinetVet-DrSusa.apk</b>).", "Prima dată telefonul spune că, din motive de securitate, nu poate instala aplicații din această sursă. Apăsați <b>„Setări”</b>.", "Porniți comutatorul <b>„Permiteți din această sursă”</b> (pentru browserul folosit, de ex. Chrome sau Samsung Internet).", "Apăsați butonul <b>Înapoi</b> al telefonului. Apare fereastra de instalare: apăsați <b>„Instalați”</b>.", "Dacă apare <b>Google Play Protect</b> („aplicație necunoscută” / „scanare recomandată”), alegeți <b>„Mai multe detalii” → „Instalați oricum”</b> (sau <b>„Scanați aplicația”</b>, apoi instalați).", "Gata: apăsați <b>„Deschideți”</b>. Pe ecran pictograma se numește <b>Vet Dr. Susa</b>."], "a_tip": "Sfat: după instalare puteți opri din nou comutatorul „Permiteți din această sursă”. Actualizările viitoare se instalează la fel.", "i": ["Deschideți această pagină în <b>Safari</b> (pe iPhone, în alt browser nu funcționează), apoi apăsați butonul albastru <b>„Deschide aplicația în Safari”</b>.", "Jos pe ecran apăsați butonul <b>Partajare</b> {share} (pătratul cu săgeata în sus).", "Derulați lista în jos și alegeți <b>„Adaugă pe ecranul principal”</b>.", "Apăsați <b>„Adaugă”</b> (dreapta sus). Pictograma <b>Vet Dr. Susa</b> apare pe ecran – deschideți aplicația de acolo, de fiecare dată."]}, "hu": {"a": ["Nyomd meg a zöld <b>„Letöltés Androidra”</b> gombot. Ha a böngésző figyelmeztet, hogy a fájl „kárt tehet az eszközben”, válaszd a <b>„Letöltés mégis”</b> lehetőséget.", "Ha kész a letöltés, koppints a <b>„Megnyitás”</b>-ra (vagy nyisd meg az értesítést / a <b>Letöltések</b> mappát → <b>CabinetVet-DrSusa.apk</b>).", "Első alkalommal a telefon jelzi, hogy biztonsági okból nem telepíthet ebből a forrásból. Koppints a <b>„Beállítások”</b> gombra.", "Kapcsold be az <b>„Engedélyezés ebből a forrásból”</b> kapcsolót (annál a böngészőnél, amivel letöltötted, pl. Chrome vagy Samsung Internet).", "Nyomd meg a telefon <b>Vissza</b> gombját. Megjelenik a telepítő ablak: koppints a <b>„Telepítés”</b> gombra.", "Ha feljön a <b>Google Play Protect</b> („ismeretlen alkalmazás” / „ellenőrzés javasolt”), válaszd a <b>„További részletek” → „Telepítés mindenképp”</b> lehetőséget (vagy <b>„Alkalmazás ellenőrzése”</b>, utána telepítés).", "Kész: koppints a <b>„Megnyitás”</b> gombra. A kezdőképernyőn az ikon neve: <b>Vet Dr. Susa</b>."], "a_tip": "Tipp: telepítés után az „Engedélyezés ebből a forrásból” kapcsolót nyugodtan kikapcsolhatod. A későbbi frissítések ugyanígy települnek.", "i": ["Ezt az oldalt <b>Safariban</b> nyisd meg (iPhone-on más böngészőben nem működik), majd koppints a kék <b>„Az alkalmazás megnyitása Safariban”</b> gombra.", "A képernyő alján koppints a <b>Megosztás</b> {share} gombra (négyzet felfelé mutató nyíllal).", "Görgess lejjebb a listában, és válaszd a <b>„Főképernyőhöz adás”</b> lehetőséget.", "Koppints a <b>„Hozzáadás”</b> gombra (jobb felül). A <b>Vet Dr. Susa</b> ikon megjelenik a kezdőképernyőn – mindig onnan nyisd meg."]}, "en": {"a": ["Tap the green <b>“Download for Android”</b> button. If your browser warns that the file “may harm your device”, choose <b>“Download anyway”</b>.", "When the download is done, tap <b>“Open”</b> (or open the notification / the <b>Downloads</b> folder → <b>CabinetVet-DrSusa.apk</b>).", "The first time, your phone says that for security it cannot install apps from this source. Tap <b>“Settings”</b>.", "Turn on <b>“Allow from this source”</b> (for the browser you downloaded with, e.g. Chrome or Samsung Internet).", "Press your phone’s <b>Back</b> button. The installer appears: tap <b>“Install”</b>.", "If <b>Google Play Protect</b> appears (“unknown app” / “app scan recommended”), choose <b>“More details” → “Install anyway”</b> (or <b>“Scan app”</b>, then install).", "Done: tap <b>“Open”</b>. On your home screen the icon is called <b>Vet Dr. Susa</b>."], "a_tip": "Tip: after installing you can switch “Allow from this source” off again. Future updates install the same way.", "i": ["Open this page in <b>Safari</b> (on iPhone other browsers won’t work), then tap the blue <b>“Open the app in Safari”</b> button.", "At the bottom of the screen tap the <b>Share</b> {share} button (the square with the arrow pointing up).", "Scroll down the list and choose <b>“Add to Home Screen”</b>.", "Tap <b>“Add”</b> (top right). The <b>Vet Dr. Susa</b> icon appears on your home screen – always open the app from there."]}, "de": {"a": ["Tippen Sie auf die grüne Schaltfläche <b>„Für Android herunterladen“</b>. Warnt der Browser, dass die Datei „dem Gerät schaden kann“, wählen Sie <b>„Trotzdem herunterladen“</b>.", "Wenn der Download fertig ist, tippen Sie auf <b>„Öffnen“</b> (oder öffnen Sie die Benachrichtigung / den Ordner <b>Downloads</b> → <b>CabinetVet-DrSusa.apk</b>).", "Beim ersten Mal meldet das Telefon, dass es aus Sicherheitsgründen keine Apps aus dieser Quelle installieren darf. Tippen Sie auf <b>„Einstellungen“</b>.", "Schalten Sie <b>„Dieser Quelle vertrauen“ / „Aus dieser Quelle zulassen“</b> ein (für den Browser, mit dem Sie heruntergeladen haben, z. B. Chrome oder Samsung Internet).", "Drücken Sie die <b>Zurück</b>-Taste des Telefons. Das Installationsfenster erscheint: tippen Sie auf <b>„Installieren“</b>.", "Erscheint <b>Google Play Protect</b> („unbekannte App“ / „App-Prüfung empfohlen“), wählen Sie <b>„Weitere Details“ → „Trotzdem installieren“</b> (oder <b>„App prüfen“</b> und danach installieren).", "Fertig: tippen Sie auf <b>„Öffnen“</b>. Auf dem Startbildschirm heißt das Symbol <b>Vet Dr. Susa</b>."], "a_tip": "Tipp: Nach der Installation können Sie „Aus dieser Quelle zulassen“ wieder ausschalten. Spätere Updates werden genauso installiert.", "i": ["Öffnen Sie diese Seite in <b>Safari</b> (auf dem iPhone funktionieren andere Browser nicht) und tippen Sie auf die blaue Schaltfläche <b>„App in Safari öffnen“</b>.", "Tippen Sie unten auf dem Bildschirm auf <b>Teilen</b> {share} (das Quadrat mit dem Pfeil nach oben).", "Scrollen Sie in der Liste nach unten und wählen Sie <b>„Zum Home-Bildschirm“</b>.", "Tippen Sie auf <b>„Hinzufügen“</b> (oben rechts). Das Symbol <b>Vet Dr. Susa</b> erscheint auf dem Home-Bildschirm – öffnen Sie die App immer von dort."]}};
+    const SHARE = "<svg class=\"share\" width=\"16\" height=\"20\" viewBox=\"0 0 18 22\" aria-hidden=\"true\"><path d=\"M9 1v13M4.5 5.5 9 1l4.5 4.5M3 9H1.8v11.2h14.4V9H15\" fill=\"none\" stroke=\"#0b1f4f\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>";
     const pick = () => {
       try { const saved = localStorage.getItem('cvs-lang'); if (T[saved]) return saved; } catch (e) {}
       for (const l of navigator.languages || [navigator.language]) { const c = String(l).slice(0, 2).toLowerCase(); if (T[c]) return c; }
@@ -122,6 +116,10 @@
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-i]').forEach((el) => { el.textContent = T[lang][el.dataset.i]; });
       document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+      // Step texts are our own static strings (<b> marks the on-screen button names).
+      document.getElementById('a-steps').innerHTML = STEPS[lang].a.map((x) => '<li>' + x + '</li>').join('');
+      document.getElementById('i-steps').innerHTML = STEPS[lang].i.map((x) => '<li>' + x.replace('{share}', SHARE) + '</li>').join('');
+      document.getElementById('a-tip').textContent = STEPS[lang].a_tip;
       try { localStorage.setItem('cvs-lang', lang); } catch (e) {}
     };
     document.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => apply(b.dataset.lang)));

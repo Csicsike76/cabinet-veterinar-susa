@@ -11,23 +11,23 @@
   .page > * { flex-shrink: 0; }
   .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; }
   .stripe { height: 5mm; background: linear-gradient(90deg, #002b7f 0 33.3%, #fcd116 33.3% 66.6%, #ce1126 66.6%); }
-  .hero { background: linear-gradient(170deg, #0b1f4f 0%, #02685a 60%, #013a33 100%); color: #fff; text-align: center; padding: 7mm 12mm 6mm; }
+  .hero { background: linear-gradient(170deg, #0b1f4f 0%, #02685a 60%, #013a33 100%); color: #fff; text-align: center; padding: 6mm 12mm 5mm; }
   .hero img { height: 26mm; }
   .hero h1 { font-size: 10mm; margin: 4mm 0 1mm; line-height: 1.1; }
   .hero h2 { font-size: 7mm; margin: 0; font-weight: 600; opacity: .95; }
   .free { display: inline-block; margin-top: 4mm; background: #fcd116; color: #0b1f4f; font-weight: 800; font-size: 5mm; border-radius: 99mm; padding: 1.5mm 6mm; }
-  .qrwrap { display: flex; align-items: center; gap: 8mm; padding: 7mm 14mm 5mm; }
-  .qr { width: 80mm; height: 80mm; border: 2mm solid #02685a; border-radius: 6mm; padding: 2mm; flex-shrink: 0; }
+  .qrwrap { display: flex; align-items: center; gap: 8mm; padding: 5mm 14mm 4mm; }
+  .qr { width: 70mm; height: 70mm; border: 2mm solid #02685a; border-radius: 6mm; padding: 2mm; flex-shrink: 0; }
   .qr img { width: 100%; height: 100%; display: block; }
-  .scan p { margin: 0 0 3.5mm; font-size: 6.6mm; font-weight: 800; line-height: 1.15; }
-  .scan p span { display: block; font-size: 5mm; font-weight: 600; color: #02685a; margin-top: 1mm; }
+  .scan p { margin: 0 0 3mm; font-size: 6mm; font-weight: 800; line-height: 1.15; }
+  .scan p span { display: block; font-size: 4.5mm; font-weight: 600; color: #02685a; margin-top: 1mm; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; padding: 0 14mm; }
   .col { border-radius: 5mm; padding: 4mm 5mm; background: #e7f4f1; }
   .col h3 { margin: 0 0 2mm; font-size: 5.6mm; }
-  .col ol { margin: 0; padding-left: 5mm; font-size: 3.8mm; line-height: 1.35; }
+  .col ol { margin: 0; padding-left: 5mm; font-size: 3.5mm; line-height: 1.32; }
   .col .hu { color: #02685a; }
   .other { text-align: center; font-size: 3.6mm; color: #475569; padding: 3mm 14mm 3mm; }
-  .foot { margin-top: auto; background: #0b1f4f; color: #fff; text-align: center; padding: 5mm 10mm; font-size: 4.2mm; line-height: 1.5; }
+  .foot { margin-top: auto; background: #0b1f4f; color: #fff; text-align: center; padding: 4mm 10mm; font-size: 4mm; line-height: 1.5; }
   .foot b { color: #fcd116; }
 </style>
 </head>
@@ -54,15 +54,16 @@
     <div class="col">
       <h3>🤖 Android</h3>
       <ol>
-        <li>Apăsați „Descarcă pentru Android” și deschideți fișierul.<br><span class="hu">Nyomja meg a „Letöltés Androidra” gombot, nyissa meg a fájlt.</span></li>
-        <li>Permiteți „Instalare aplicații necunoscute”, dacă vi se cere.<br><span class="hu">Ha kéri, engedélyezze az „Ismeretlen alkalmazások telepítését”.</span></li>
-        <li>„Instalează” → „Deschide”.<br><span class="hu">„Telepítés” → „Megnyitás”.</span></li>
+        <li>„Descarcă pentru Android” → deschideți fișierul (browserul avertizează: „Descarcă oricum”).<br><span class="hu">„Letöltés Androidra” → nyissa meg a fájlt (figyelmeztetésnél: „Letöltés mégis”).</span></li>
+        <li>Telefonul blochează: „Setări” → porniți „Permiteți din această sursă”.<br><span class="hu">A telefon letiltja: „Beállítások” → kapcsolja be: „Engedélyezés ebből a forrásból”.</span></li>
+        <li>Butonul Înapoi → „Instalați” (Play Protect: „Instalați oricum”).<br><span class="hu">Vissza gomb → „Telepítés” (Play Protect: „Telepítés mindenképp”).</span></li>
+        <li>„Deschideți” – pictograma: Vet Dr. Susa.<br><span class="hu">„Megnyitás” – az ikon neve: Vet Dr. Susa.</span></li>
       </ol>
     </div>
     <div class="col">
       <h3>🍎 iPhone</h3>
       <ol>
-        <li>Deschideți aplicația în Safari.<br><span class="hu">Nyissa meg az alkalmazást Safariban.</span></li>
+        <li>Deschideți pagina în Safari → „Deschide aplicația”.<br><span class="hu">Nyissa meg Safariban → „Az alkalmazás megnyitása”.</span></li>
         <li>Partajare ⬆ → „Adaugă pe ecranul principal”.<br><span class="hu">Megosztás ⬆ → „Főképernyőhöz adás”.</span></li>
         <li>„Adaugă” – pictograma apare pe ecran.<br><span class="hu">„Hozzáadás” – az ikon megjelenik a kezdőképernyőn.</span></li>
       </ol>
