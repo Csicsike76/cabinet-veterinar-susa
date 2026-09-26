@@ -7,6 +7,8 @@
   <meta name="description" content="Aplicația gratuită a Cabinetului Veterinar Dr. Ioan Susa, Satu Mare. Android și iPhone." />
   <meta name="theme-color" content="#02685A" />
   <link rel="icon" type="image/png" href="img/icon.png" />
+  <!-- Lets Chrome / Samsung Internet offer the one-tap install button below. -->
+  <link rel="manifest" href="manifest.webmanifest" />
   <style>
     :root { --green:#02685a; --green-d:#013a33; --navy:#0b1f4f; --blue:#002b7f; --yellow:#fcd116; --red:#ce1126; }
     * { box-sizing: border-box; }
@@ -34,6 +36,8 @@
     .btn { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; border-radius: 18px; font-weight: 800; font-size: 1.05rem; text-decoration: none; margin: 12px 0 6px; padding: 10px 16px; text-align: center; }
     .btn.green { background: var(--green); color: #fff; }
     .btn.navy { background: var(--navy); color: #fff; }
+    .btn.install { width: 100%; border: 0; cursor: pointer; font-family: inherit; background: var(--yellow); color: var(--navy); box-shadow: 0 16px 40px -18px rgba(0,0,0,.6); }
+    .btn.install[hidden] { display: none; }
     ol { margin: 8px 0 0; padding-inline-start: 22px; line-height: 1.5; }
     li { margin: 4px 0; }
     .note { font-size: .88rem; color: #475569; margin: 8px 0 0; }
@@ -59,6 +63,8 @@
       <button data-lang="en">English</button>
       <button data-lang="de">Deutsch</button>
     </nav>
+
+    <button class="btn install" id="install" type="button" hidden><span aria-hidden="true">📲</span> <span data-i="install"></span></button>
 
     <section class="card" id="android">
       <h2>🤖 Android <span class="mine-tag" data-i="yours"></span></h2>
@@ -91,6 +97,7 @@
         legal: 'Confidențialitate · Termeni și condiții',
         credit: 'Aplicație realizată de Oláh Zsolt',
         title: 'Aplicația cabinetului, gratuit', sub: 'Carnetul de sănătate al animalului tău, mementouri și contactul cu cabinetul – totul în telefon.', free: 'Gratuit · fără cont · fără reclame', yours: 'telefonul tău',
+        install: 'Instalează aplicația cu un clic',
         a_btn: 'Descarcă pentru Android', a_note: 'Aplicația este oferită de cabinet; datele rămân doar pe telefonul tău.',
         i_btn: 'Deschide aplicația în Safari', i_note: 'Pe iPhone datele rămân în telefon; salvarea se face în fișier (iCloud / Fișiere).'
       },
@@ -98,6 +105,7 @@
         legal: 'Adatvédelem · Felhasználási feltételek',
         credit: 'Az alkalmazást készítette: Oláh Zsolt',
         title: 'A rendelő alkalmazása, ingyen', sub: 'Kedvenced egészségügyi könyve, emlékeztetők és a rendelő elérhetősége – mind a telefonodon.', free: 'Ingyenes · regisztráció nélkül · reklám nélkül', yours: 'a te telefonod',
+        install: 'Telepítés egy kattintással',
         a_btn: 'Letöltés Androidra', a_note: 'Az alkalmazást a rendelő adja; az adataid csak a telefonodon maradnak.',
         i_btn: 'Az alkalmazás megnyitása Safariban', i_note: 'iPhone-on az adatok a telefonon maradnak; a mentés fájlba történik (iCloud / Fájlok).'
       },
@@ -105,6 +113,7 @@
         legal: 'Privacy · Terms of use',
         credit: 'App made by Oláh Zsolt',
         title: "The clinic's app, free", sub: "Your pet's health record, reminders and the clinic's contacts – all on your phone.", free: 'Free · no account · no ads', yours: 'your phone',
+        install: 'Install the app in one tap',
         a_btn: 'Download for Android', a_note: 'The app is a gift from the clinic; your data stays on your phone only.',
         i_btn: 'Open the app in Safari', i_note: 'On iPhone your data stays on the phone; backups are saved as a file (iCloud / Files).'
       },
@@ -112,6 +121,7 @@
         legal: 'Datenschutz · Nutzungsbedingungen',
         credit: 'App erstellt von Oláh Zsolt',
         title: 'Die App der Praxis, kostenlos', sub: 'Gesundheitsheft Ihres Tieres, Erinnerungen und die Kontakte der Praxis – alles auf Ihrem Telefon.', free: 'Kostenlos · ohne Konto · ohne Werbung', yours: 'Ihr Telefon',
+        install: 'App mit einem Tipp installieren',
         a_btn: 'Für Android herunterladen', a_note: 'Die App ist ein Geschenk der Praxis; Ihre Daten bleiben nur auf Ihrem Telefon.',
         i_btn: 'App in Safari öffnen', i_note: 'Auf dem iPhone bleiben die Daten auf dem Telefon; Sicherungen werden als Datei gespeichert (iCloud / Dateien).'
       }
@@ -141,6 +151,19 @@
     const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     const mine = document.getElementById(ios ? 'iphone' : /Android/.test(ua) ? 'android' : '');
     if (mine) { mine.classList.add('mine'); mine.parentNode.insertBefore(mine, document.getElementById('android')); }
+
+    // One-tap install: the browser only offers it where it can (Chrome, Edge, Samsung Internet).
+    // Elsewhere the button stays hidden and the Android / iPhone steps below still work.
+    const installBtn = document.getElementById('install');
+    let deferred = null;
+    window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; installBtn.hidden = false; });
+    installBtn.addEventListener('click', async () => {
+      if (!deferred) return;
+      deferred.prompt();
+      await deferred.userChoice;
+      deferred = null; installBtn.hidden = true;
+    });
+    window.addEventListener('appinstalled', () => { installBtn.hidden = true; });
   </script>
 </body>
 </html>
